@@ -1,3 +1,5 @@
+--First test
+
 math.randomseed(os.time())
 push = require 'push'
 Class = require 'class'
