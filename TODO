@@ -1,0 +1,31 @@
+#aggiungere stati
+#creare stati: mainMenu, gameState, gameMenu, pause, gameover, credits
+
+-mainMenu
+  #play
+  #options
+  #credits (optional)(only if the game was finished once)
+  #exit
+
+-gameState
+  #creare nemici
+  #implementare sparo e collisioni
+  #creare powerups
+  #HUD
+  #creare boss
+  #collegare tiled e creare una mappa
+  #audio
+
+-gameMenu
+  #menu che mostra:
+  #stats
+  #opzioni audio
+  #uscita gioco
+
+  -pause
+    #semplice pausa grigia?
+
+  -gameover
+    #ritorna al gioco
+    #ritorna al menu principale (non so se ha senso, visto che )
+    #esci dal gioco
