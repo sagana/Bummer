@@ -10,9 +10,11 @@ function Star:init()
     self.x          = math.random(0, VIR_WIDTH)
     self.y          = math.random(0, VIR_HEIGHT)
     self.originY    = self.y
-    self.vel        = love.math.noise(math.random()*self.x)*300
-    self.rad        = love.math.noise( math.random()*self.x ) * 2
+    self.MIN_VEL    = 50
+    self.MAX_VEL    = 500
+    self.vel        = love.math.noise(math.random()*self.x)*self.MAX_VEL
     self.originVel  = self.vel
+    self.rad        = love.math.noise( math.random()*self.x ) * 2
 
 
     self.starColor  = {1,1,1,1}
@@ -63,9 +65,9 @@ end
 -- @operation ('add' or 'sub')
 --]]
 function Star:setVel(num, operation)
-  if operation == 'sub' and self.vel >= 0 then
+  if operation == 'sub' and self.vel > self.MIN_VEL then
     self.vel = self.vel - num
-  elseif operation == 'add' and self.vel <= 300 then
+  elseif operation == 'add' and self.vel < self.MAX_VEL then
     self.vel = self.vel + num
   end
 
@@ -76,7 +78,7 @@ function Star:reset()
 
   self.x    = math.random(0, VIR_WIDTH)
   self.y    = -10
-  self.vel  = love.math.noise(math.random()*self.x)*300
+  self.vel  = love.math.noise(math.random()*self.x)*self.MAX_VEL
   self.originY = self.y
   self.tailColor = self:randomizeColor()
 end
