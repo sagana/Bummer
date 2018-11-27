@@ -1,5 +1,4 @@
 --[[
--- Star.lua
 -- Class Star, it represent a single star. It's randomly generated in his
 -- own constructor, it move  and can be resetted at any time of need.
 --]]

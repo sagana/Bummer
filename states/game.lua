@@ -1,5 +1,4 @@
 --[[
--- game.lua
 -- Where all the actual game logic is.
 ]]--
 require 'Starfield'
