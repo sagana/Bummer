@@ -1,6 +1,6 @@
 --[[
 -- Bummer is a vertical shooter born with the intention of learning how to make
--- game with Love2D and the help of the github community.
+-- a game with Love2D and the help of the github community.
 -- @author Sagana
 -- @version 0.1
 -- @since 2018-11-26
