@@ -1,40 +1,36 @@
---First test
+--importing ext libraries, copyright can be checked in their specific files
+push = require 'libs.push'
+Class = require "libs.class"
+gamestate = require "libs.gamestate"
+--importing states
+game = require 'states.game'
 
-math.randomseed(os.time())
-push = require 'push'
-Class = require 'class'
-require 'MBG'
-require 'Player'
+math.randomseed(os.time()) -- create random seed
+
+--actual window dimensions
 WIN_WIDTH = 600
 WIN_HEIGHT = 800
 
+--virtual windows dimensions
 VIR_WIDTH = 300
 VIR_HEIGHT = 400
 
-STAR_NUM = 500
-
-local background = {}
-local player = {}
 
 function love.load()
 
-
-  player = Player()
-  --Inizializziamo il background stellato
-  for i = 1,STAR_NUM do
-    background[i] = MBG()
-  end
 
   love.graphics.setDefaultFilter('nearest', 'nearest', 1)
 
   love.window.setTitle('Bummer')
 
   push:setupScreen(VIR_WIDTH, VIR_HEIGHT, WIN_WIDTH, WIN_HEIGHT,
-                  {vsync = false,
+                  {vsync = true,
                    fullscreen = false,
                    resizable = true}
                   )
 
+  gamestate.registerEvents{'init','enter','update', 'quit'}
+  gamestate.push(game)
 end
 
 function love.resize(w, h)
@@ -51,32 +47,12 @@ end
 
 function love.update(dt)
 
-  if player:input() == 'up' then
-    for i = 1, STAR_NUM do
-      background[i]:setVel(300*dt,'add')
-      love.graphics.setColor(255, 0, 0, 255)
-    end
-  elseif player:input() == 'down' then
-    for i = 1, STAR_NUM do
-      background[i]:setVel(100*dt,'sub')
-      love.graphics.setColor(255, 0, 0, 255)
-    end
-  end
-
-
-  for i = 1, STAR_NUM do
-    background[i]:update()
-  end
 end
 
 function love.draw()
   push:start()
 
-  for i = 1, STAR_NUM do
-    background[i]:draw()
-  end
-
-  player:draw()
+  gamestate:draw()
 
   push:finish()
   love.graphics.print("Current FPS: "..tostring(love.timer.getFPS( )), 10, 10)
