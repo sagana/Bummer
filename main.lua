@@ -1,11 +1,20 @@
+--[[
+-- Bummer is a vertical shooter born with the intention of learning how to make
+-- game with Love2D and the help of the github community.
+-- @author Sagana
+-- @version 0.1
+-- @since 2018-11-26
+]]--
+
 --importing ext libraries, copyright can be checked in their specific files
 push = require 'libs.push'
 Class = require "libs.class"
 gamestate = require "libs.gamestate"
+
 --importing states
 game = require 'states.game'
 
-math.randomseed(os.time()) -- create random seed
+math.randomseed(os.time())
 
 --actual window dimensions
 WIN_WIDTH = 600
@@ -29,7 +38,7 @@ function love.load()
                    resizable = true}
                   )
 
-  gamestate.registerEvents{'init','enter','update', 'quit'}
+  gamestate.registerEvents{'init','enter','update', 'quit'} --draw is excluded to use push lib
   gamestate.push(game)
 end
 
@@ -45,12 +54,8 @@ function love.keypressed(key)
 
 end
 
-function love.update(dt)
-
-end
-
 function love.draw()
-  push:start()
+  push:start() --everything between will be resized into virtual dimensions
 
   gamestate:draw()
 

@@ -8,6 +8,10 @@ function Player:init()
   self.speed  = 150
 end
 
+function Player:getSpeed()
+  return self.speed
+end
+
 function Player:input()
 
    key = ''

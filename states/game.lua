@@ -1,53 +1,37 @@
-
-require 'MBG'
+--[[
+-- game.lua
+-- Where all the actual game logic is.
+]]--
+require 'Starfield'
 require 'Player'
-
-
-local STAR_NUM = 150
 
 local game = {}
 
 function game:init()
-  self.background = {}
   self.player = Player()
-  --Fill background with stars
-  for i = 1,STAR_NUM do
-    self.background[i] = MBG()
-  end
+  self.starfield = Starfield()
 end
 
 function game:enter()
 
-  print("entered game state")
+  print("Entered game state")--for debug
 end
 
 function game:update(dt)
 
+    --when the player move up or down the stars change their vel accordingly
     if self.player:input() == 'up' then
-      for i = 1, STAR_NUM do
-        self.background[i]:setVel(300*dt,'add')
-        love.graphics.setColor(255, 0, 0, 255)
-      end
+      self.starfield:setVel(self.player:getSpeed(),'add')
     elseif self.player:input() == 'down' then
-      for i = 1, STAR_NUM do
-        self.background[i]:setVel(100*dt,'sub')
-        love.graphics.setColor(255, 0, 0, 255)
-      end
+      self.starfield:setVel(self.player:getSpeed(),'sub')
     end
 
-
-    for i = 1, STAR_NUM do
-      self.background[i]:update()
-    end
-
+    self.starfield:update()
 end
 
 function game:draw()
 
-  for i = 1, STAR_NUM do
-    self.background[i]:draw()
-  end
-
+  self.starfield:draw()
   self.player:draw()
 end
 

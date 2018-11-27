@@ -1,31 +1,32 @@
-#aggiungere stati
-#creare stati: mainMenu, gameState, gameMenu, pause, gameover, credits
+#Add States
+#create states: mainMenu, gameMenu, pause, gameover, credits
 
--mainMenu
+-mainMenu toDo
   #play
   #options
   #credits (optional)(only if the game was finished once)
   #exit
 
--gameState
-  #creare nemici
-  #implementare sparo e collisioni
-  #creare powerups
+-gameState toDo
+  #create enemies
+  #implement shooting
+  #implement collision
+  #create powerups
   #HUD
-  #creare boss
-  #collegare tiled e creare una mappa
-  #audio
+  #create boss
+  #connect tiled editor e try out a map
+  #add audio and music
 
--gameMenu
-  #menu che mostra:
+-gameMenu toDo
+  #menu shows:
   #stats
-  #opzioni audio
-  #uscita gioco
+  #audio options
+  #exit game
 
-  -pause
-    #semplice pausa grigia?
+  -pause toDo
+    #simple overlay pause screen?
 
-  -gameover
-    #ritorna al gioco
-    #ritorna al menu principale (non so se ha senso, visto che )
-    #esci dal gioco
+  -gameover toDo
+    #return to the game
+    #return to main menu (I'm not sure it make sense in a game like this one)
+    #exit the game
