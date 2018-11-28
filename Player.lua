@@ -25,6 +25,9 @@ function Player:input()
       key = 'down'
   end
 
+  if love.keyboard.isDown('space') then
+    key = 'space'
+  end
   if love.keyboard.isDown('left') then
       self.x = self.x - self.speed * love.timer.getDelta()
   end
