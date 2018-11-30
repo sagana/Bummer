@@ -62,5 +62,5 @@ function love.draw()
   gamestate:draw()
 
   push:finish()
-  love.graphics.print("Current FPS: "..tostring(love.timer.getFPS( )), 10, 10)
+  love.graphics.print("Current FPS: "..tostring(love.timer.getFPS( )), 10, WIN_HEIGHT-50)
 end

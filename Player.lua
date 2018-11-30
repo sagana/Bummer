@@ -8,6 +8,10 @@ function Player:init()
   self.speed  = 50
   self.shootLag = 0.3
   self.timer = 0
+  self.maxHealth = 5
+  self.maxShield = 5
+  self.health = self.maxHealth
+  self.shield = self.maxShield
 end
 
 function Player:getSpeed()

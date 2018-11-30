@@ -6,6 +6,7 @@ require 'Player'
 require 'Bullets'
 require 'Enemies'
 require 'Collision'
+require 'HUD'
 
 local game = {}
 
@@ -14,6 +15,7 @@ function game:init()
   self.starfield = Starfield()
   self.bullets = Bullets()
   self.enemies = Enemies()
+  self.HUD = HUD(self.player.health, self.player.shield)
 end
 
 function game:enter()
@@ -47,7 +49,7 @@ function game:update(dt)
   end
 
   self.starfield:update()
-
+  self.HUD:update(self.player.health, self.player.shield, 0)
 
 end
 
@@ -57,6 +59,7 @@ function game:draw()
   self.player:draw()
   self.bullets:draw()
   self.enemies:draw()
+  self.HUD:draw()
 end
 
 return game

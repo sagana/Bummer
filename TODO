@@ -8,8 +8,7 @@
   #exit
 
 -gameState toDo
-  #create enemies
-  #implement collision
+  #collisions between enemies and ship
   #create powerups
   #HUD
   #create boss
