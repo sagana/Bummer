@@ -7,6 +7,7 @@
 ]]--
 
 --importing ext libraries, copyright can be checked in their specific files
+Timer = require 'libs.timer'
 push = require 'libs.push'
 Class = require "libs.class"
 gamestate = require "libs.gamestate"
@@ -50,6 +51,7 @@ function love.keypressed(key)
   if key == 'escape' then
     love.event.quit()
   end
+
 
 
 end

@@ -3,16 +3,19 @@
 --]]
 
 --we define the image externaly to lend the class a reference
-local BulletImg = love.graphics.newImage("assets/Images/Guitar.png")
+local BulletImg = love.graphics.newImage("assets/Images/noteW.png")
+
+
 
 Bullet = Class{}
 
 function Bullet:init(x, y)
   self.x = x
   self.y = y
-  self.vel = 300
+  self.vel = 200
   self.img = BulletImg
 end
+
 
 function Bullet:update()
   self.y = self.y - self.vel * love.timer.getDelta()
