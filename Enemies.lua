@@ -12,7 +12,7 @@ function Enemies:init()
   self.enemies = {}
   self.enemiesTimer = Timer.new()
   self.enemiesTimer:every(10, function() self:cleanEnemies() end )
-  self.enemiesTimer:every(1, function() self:addEnemy(love.math.random(0,VIR_WIDTH), -50,100) end )
+  self.enemiesTimer:every(1, function() self:addEnemy(love.math.random(0,VIR_WIDTH-50), -50,100) end )
 end
 
 -- Update every star
@@ -24,6 +24,11 @@ function Enemies:update()
       v:update()
     end
   end
+
+    if next(self.enemies) ~= nil then
+        TableRemove(self.enemies, enemyCheckStatus)
+    end
+
 end
 
 -- Draw every star
@@ -44,18 +49,31 @@ end
 function Enemies:cleanEnemies()
 local j
   if next(self.enemies) ~= nil then
-      TableRemove(self.enemies, toKeep)
+      TableRemove(self.enemies, enemyToKeep)
   end
 end
 
 --[[
-  toKeep is used in pair with TableRemove(). It returns false if the bullet
+  toKeep is used in pair with TableRemove(). It returns false if the enemy
   it's over the screen and not visible, telling TableRemove() to remove it.
 ]]
-function toKeep(t,i,j)
+function enemyToKeep(t,i,j)
 
   if t[i].y > VIR_HEIGHT -200 then
     return false
   end
   return true
+end
+--[[
+  toKeep is used in pair with TableRemove(). It returns false if the enemy
+  it's dead (isAlive == false), telling TableRemove() to remove it.
+]]
+function enemyCheckStatus(t,i,j)
+
+  if t[i].isAlive == true then
+    return true
+  else
+    return false
+  end
+
 end

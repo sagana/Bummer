@@ -14,8 +14,12 @@ function Bullet:init(x, y)
   self.y = y
   self.vel = 300
   self.img = BulletImg
+  self.width = self.img:getWidth()
+  self.height = self.img:getHeight()
+  self.isAlive = true
   Bulletsound:stop()
   Bulletsound:play()
+
 end
 
 

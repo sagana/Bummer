@@ -3,7 +3,7 @@
 --]]
 
 --we define the image externaly to lend the class a reference
-local EnemyImg = love.graphics.newImage("assets/Images/bum.png")
+local EnemyImg = love.graphics.newImage("assets/Images/Bum.png")
 
 
 Enemy = Class{}
@@ -13,11 +13,15 @@ function Enemy:init(x, y, vel)
   self.y = y
   self.vel = vel
   self.img = EnemyImg
+  self.width = self.img:getWidth()
+  self.height = self.img:getHeight() * 0.8
+  self.isAlive = true
 end
 
 
 function Enemy:update()
   self.y = self.y + self.vel * love.timer.getDelta()
+
 end
 
 function Enemy:draw()
