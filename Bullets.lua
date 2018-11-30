@@ -12,7 +12,7 @@ function Bullets:init()
   self.bullets = {}
   self.bulletsTimer = Timer.new()
   self.shoot = false
-  self.bulletDelay = 0.5
+  self.bulletDelay = 0.45
   self.bulletsTimer:every(self.bulletDelay, function() self.shoot = true end)
   self.bulletsTimer:every(10, function() self:cleanBullets() end )
 end

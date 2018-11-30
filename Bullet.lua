@@ -4,7 +4,7 @@
 
 --we define the image externaly to lend the class a reference
 local BulletImg = love.graphics.newImage("assets/Images/noteW.png")
-
+local Bulletsound = love.audio.newSource("assets/sounds/note2.wav", "static")
 
 
 Bullet = Class{}
@@ -12,8 +12,10 @@ Bullet = Class{}
 function Bullet:init(x, y)
   self.x = x
   self.y = y
-  self.vel = 200
+  self.vel = 300
   self.img = BulletImg
+  Bulletsound:stop()
+  Bulletsound:play()
 end
 
 

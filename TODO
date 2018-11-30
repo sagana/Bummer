@@ -1,5 +1,5 @@
 #Add States
-#create states: mainMenu, gameMenu, pause, gameover, credits
+#create states: gameMenu, pause, gameover, credits
 
 -mainMenu toDo
   #play
@@ -9,7 +9,6 @@
 
 -gameState toDo
   #create enemies
-  #implement shooting
   #implement collision
   #create powerups
   #HUD

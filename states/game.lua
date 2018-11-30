@@ -28,9 +28,9 @@ function game:update(dt)
     self.bullets:update()
     --when the player move up or down the stars change their vel accordingly
     if self.player:input() == 'up' then
-      self.starfield:setVel(self.player:getSpeed(),'add')
+      self.starfield:setVel(self.player:getSpeed()*5,'add') --magic number, just for test
     elseif self.player:input() == 'down' then
-      self.starfield:setVel(self.player:getSpeed(),'sub')
+      self.starfield:setVel(self.player:getSpeed()*2,'sub') --magic number, just for test
     end
 
     self.starfield:update()
