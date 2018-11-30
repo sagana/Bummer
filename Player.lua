@@ -5,6 +5,8 @@ function Player:init()
   self.x      = VIR_WIDTH/2
   self.y      = VIR_HEIGHT/2
   self.img    = love.graphics.newImage("assets/Images/Guitar.png")
+  self.width = self.img:getWidth()
+  self.height = self.img:getHeight()
   self.speed  = 50
   self.shootLag = 0.3
   self.timer = 0

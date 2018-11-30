@@ -15,11 +15,17 @@ function Enemy:init(x, y, vel)
   self.img = EnemyImg
   self.width = self.img:getWidth()
   self.height = self.img:getHeight() * 0.8
+  self.health = 1
   self.isAlive = true
 end
 
 
 function Enemy:update()
+
+  if self.health <= 0 then
+    self.isAlive = false
+  end
+
   self.y = self.y + self.vel * love.timer.getDelta()
 
 end

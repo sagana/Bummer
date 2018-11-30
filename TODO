@@ -8,12 +8,15 @@
   #exit
 
 -gameState toDo
-  #collisions between enemies and ship
   #create powerups
   #HUD
   #create boss
   #connect tiled editor e try out a map
   #add audio and music
+  -enemies
+    #different types
+    #explode in farts when defeated
+    #a type could explode in a green poisonus fart
 
 -gameMenu toDo
   #menu shows:

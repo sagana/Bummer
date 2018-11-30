@@ -29,12 +29,18 @@ function game:update(dt)
     for i2, v2 in ipairs(self.enemies.enemies) do
       if checkCollision(v1,v2) then
         v1.isAlive = false
-        v2.isAlive = false
+        v2.health = v2.health -1
         break
       end
     end
   end
-
+  for i1,v1 in ipairs(self.enemies.enemies) do
+      if checkCollision(v1,self.player) then
+        v1.isAlive = false
+        self.player.health = self.player.health - 1
+        break
+      end
+  end
   if self.player:input() == 'space' and self.bullets.shoot == true then
     self.bullets:addBullet(self.player.x, self.player.y)
       self.bullets.shoot = false
